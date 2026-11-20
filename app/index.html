@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Golden Hour — GTA-style cover studio</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">GH</span> GOLDEN HOUR <span class="brand-sub">GTA-style cover studio</span></div>
+  <div class="topbar-note">Photos never leave your machine · works offline</div>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <div class="group">
+      <h2>1 · Your photo</h2>
+      <label class="drop" id="drop">Drop a photo here, or
+        <input id="photo" type="file" accept="image/*">
+      </label>
+      <p class="hint">Pick a demo photo for the selected panel:</p>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+    <div class="group">
+      <h2>2 · Layout &amp; grade</h2>
+      <div class="row" id="layouts" role="group" aria-label="Layout"></div>
+      <div class="row" id="grades" role="group" aria-label="Colour grade"></div>
+      <button id="inkToggle" type="button" aria-pressed="true">Poster Ink: On — painted panels</button>
+      <p class="hint">Poster Ink paints every panel — your photo included — into flat tones with ink outlines and halftone shadows, so the cover reads as one hand-painted poster instead of a photograph.</p>
+    </div>
+    <div class="group">
+      <h2>3 · Caption</h2>
+      <label>Title <input id="title" type="text" maxlength="24" value="GOLDEN HOUR"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="last light on the coast"></label>
+      <label>Tagline <input id="tagline" type="text" maxlength="60" value="ONE COAST · FIVE FRIENDS · ZERO REGRETS"></label>
+      <label>Quote <input id="quote" type="text" maxlength="60" value="THE SUN NEVER SETS ON THIS CREW"></label>
+      <label>Quote source <input id="quoteSource" type="text" maxlength="30" value="THE COAST GAZETTE"></label>
+    </div>
+    <div class="group" id="panelGroup">
+      <h2>4 · Selected panel <span id="panelName"></span></h2>
+      <label>Role tag <input id="panelTag" type="text" maxlength="16" value="THE INSIDER"></label>
+      <label>Zoom <input id="panelZoom" type="range" min="1" max="2.2" step="0.01" value="1.12"></label>
+      <label>Move left–right <input id="panelDx" type="range" min="-0.4" max="0.4" step="0.01" value="0"></label>
+      <label>Move up–down <input id="panelDy" type="range" min="-0.4" max="0.4" step="0.01" value="0.04"></label>
+      <p class="hint">Click a panel in the preview to select it. Drag its photo to move it, scroll to zoom.</p>
+    </div>
+    <div class="group">
+      <h2>5 · Export</h2>
+      <div class="row" id="sizes" role="group" aria-label="Export size"></div>
+      <button id="export" type="button">Export PNG</button>
+      <p id="status" role="status"></p>
+    </div>
+  </section>
+  <section class="stage" aria-label="Live preview">
+    <canvas id="cover" width="960" height="540" aria-label="The cover preview"></canvas>
+    <p class="stage-hint">Live preview — what you see is what the PNG gets.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
